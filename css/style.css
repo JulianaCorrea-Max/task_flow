@@ -1,0 +1,354 @@
+/* ------------------- */
+/* RESET E VARIÁVEIS   */
+/* ------------------- */
+:root {
+    --primary-color: #6a5acd; /* Roxo ardósia */
+    --secondary-color: #f0f8ff; /* Azul alice */
+    --dark-color: #333;
+    --light-color: #fff;
+    --gray-color: #f4f4f4;
+    --font-family: 'Poppins', sans-serif;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Efeito de rolagem suave nativo */
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* ------------------- */
+/* COMPONENTES GLOBAIS */
+/* ------------------- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+/* Animação de Fade-in (para o JS) */
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ------------------- */
+/* HEADER E NAVEGAÇÃO  */
+/* ------------------- */
+.header {
+    background: var(--light-color);
+    box-shadow: var(--box-shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: -100%; /* Esconde o menu fora da tela */
+    width: 100%;
+    background: var(--light-color);
+    padding: 1rem 0;
+    text-align: center;
+    transition: left 0.3s ease-in-out;
+}
+
+.nav-menu.active {
+    left: 0; /* Mostra o menu */
+}
+
+.nav-menu li {
+    padding: 1rem 0;
+}
+
+.nav-menu a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+}
+
+.nav-toggle {
+    display: block;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* ------------------- */
+/* SEÇÕES              */
+/* ------------------- */
+main {
+    padding-top: 70px; /* Para não ficar atrás do header fixo */
+}
+
+section {
+    padding: 60px 0;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.hero-content {
+    margin-bottom: 2rem;
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.hero-image img {
+    max-width: 400px;
+}
+
+/* Features Section */
+.features-section {
+    background-color: var(--gray-color);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: var(--light-color);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* About Section */
+.about-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.about-image img {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.about-content {
+    text-align: center;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--secondary-color);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-family);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: 2px solid var(--primary-color);
+    border-color: transparent;
+}
+
+.form-status {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+/* ------------------- */
+/* RODAPÉ              */
+/* ------------------- */
+.footer {
+    background: var(--dark-color);
+    color: var(--light-color);
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* ------------------- */
+/* RESPONSIVIDADE      */
+/* ------------------- */
+@media (min-width: 768px) {
+    .nav-toggle {
+        display: none; /* Esconde o botão hamburger */
+    }
+
+    .nav-menu {
+        position: static;
+        flex-direction: row;
+        width: auto;
+        background: none;
+        left: 0;
+    }
+    
+    .nav-menu li {
+        padding: 0 1rem;
+    }
+
+    .hero-section {
+        flex-direction: row;
+        text-align: left;
+        gap: 2rem;
+    }
+
+    .hero-content {
+        flex: 1;
+    }
+
+    .hero-image {
+        flex: 1;
+    }
+    
+    .hero-image img {
+        max-width: 100%;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .about-section .container {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .about-content, .about-image {
+        flex: 1;
+    }
+}
